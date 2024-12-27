@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apri Cancello</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #e0ffff; /* Aqua background */
+        }
+
+        .button {
+            font-size: 2rem;
+            padding: 20px 40px;
+            color: #fff;
+            background-color: #007fff; /* Aqua button */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .button:active {
+            background-color: #005f99; /* Darker aqua on click */
+        }
+    </style>
+</head>
+<body>
+    <button class="button" id="openGate">ON</button>
+
+    <script>
+        document.getElementById("openGate").addEventListener("click", function () {
+            // URL dell'API o del server che controlla il cancello
+            const apiUrl = "https://example.com/api/open-gate"; // Cambia con il tuo endpoint
+
+            // Invia una richiesta POST per aprire il cancello
+            fetch(apiUrl, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ action: "open" }),
+            })
+                .then((response) => {
+                    if (response.ok) {
+                        alert("Cancello aperto!");
+                    } else {
+                        alert("Errore nell'apertura del cancello.");
+                    }
+                })
+                .catch((error) => {
+                    console.error("Errore nella richiesta:", error);
+                    alert("Si è verificato un errore.");
+                });
+        });
+    </script>
+</body>
+</html>
