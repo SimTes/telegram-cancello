@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2299.3">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="en"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Apri Cancello&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>display: flex;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>justify-content: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>align-items: center;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>height: 100vh;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #e0ffff; /* Aqua background */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.button {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>font-size: 2rem;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>padding: 20px 40px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>color: #fff;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #007fff; /* Aqua button */</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">        </span>.button:active {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>background-color: #005f99; /* Darker aqua on click */</p>
+<p class="p1"><span class="Apple-converted-space">        </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button class="button" id="openGate"&gt;ON&lt;/button&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>document.getElementById("openGate").addEventListener("click", function () {</p>
+<p class="p1"><span class="Apple-converted-space">            </span>// URL dell'API o del server che controlla il cancello</p>
+<p class="p1"><span class="Apple-converted-space">            </span>const apiUrl = "https://example.com/api/open-gate"; // Cambia con il tuo endpoint</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">            </span>// Invia una richiesta POST per aprire il cancello</p>
+<p class="p1"><span class="Apple-converted-space">            </span>fetch(apiUrl, {</p>
+<p class="p1"><span class="Apple-converted-space">                </span>method: "POST",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>headers: {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>"Content-Type": "application/json",</p>
+<p class="p1"><span class="Apple-converted-space">                </span>},</p>
+<p class="p1"><span class="Apple-converted-space">                </span>body: JSON.stringify({ action: "open" }),</p>
+<p class="p1"><span class="Apple-converted-space">            </span>})</p>
+<p class="p1"><span class="Apple-converted-space">                </span>.then((response) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>if (response.ok) {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>alert("Cancello aperto!");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>} else {</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>alert("Errore nell'apertura del cancello.");</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">                </span>})</p>
+<p class="p1"><span class="Apple-converted-space">                </span>.catch((error) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>console.error("Errore nella richiesta:", error);</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>alert("Si è verificato un errore.");</p>
+<p class="p1"><span class="Apple-converted-space">                </span>});</p>
+<p class="p1"><span class="Apple-converted-space">        </span>});</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>
