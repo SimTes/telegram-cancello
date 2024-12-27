@@ -34,18 +34,31 @@
 <body>
     <button class="button" id="openGate">ON</button>
 
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <script>
         document.getElementById("openGate").addEventListener("click", function () {
             // URL dell'API o del server che controlla il cancello
             const apiUrl = "https://example.com/api/open-gate"; // Cambia con il tuo endpoint
 
-            // Invia una richiesta POST per aprire il cancello
+            // Ottieni i dati utente di Telegram
+            const telegramData = Telegram.WebApp.initData;
+
+            // Verifica che i dati utente siano disponibili
+            if (!telegramData) {
+                alert("Errore: impossibile verificare l'utente Telegram.");
+                return;
+            }
+
+            // Invia una richiesta POST per aprire il cancello con i dati Telegram
             fetch(apiUrl, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ action: "open" }),
+                body: JSON.stringify({
+                    action: "open",
+                    user: telegramData
+                }),
             })
                 .then((response) => {
                     if (response.ok) {
